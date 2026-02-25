@@ -44,17 +44,37 @@ This artifact is designed to show where empirical curves follow expected behavio
 Each curve is labeled by `circuit_family | n=<n_qubits>, d=<depth>`.
 
 ## 6) Fill After Full Run (No invented claims)
-After running:
+Run executed:
 
 ```bash
 python -m quantum_swe_artifacts.cli run --config configs/noise_shot_scaling_full_001.yaml
 ```
 
-Record here:
-- Observed scaling slope region for each curve family/regime.
-- Any apparent shot-noise floor in mean error.
-- Runtime growth pattern and notable nonlinear regions.
-- Tradeoff recommendation (e.g., shot range where marginal error reduction becomes small relative to runtime increase).
+Observed from `results/noise_shot_scaling_full_001/summary.json`:
+- `mean_abs_error` at 10 shots vs 5000 shots:
+  - `iqp (8,6)`: `0.238289 -> 0.007865`
+  - `iqp (12,8)`: `0.207621 -> 0.009322`
+  - `random (8,6)`: `0.243756 -> 0.007735`
+  - `random (12,8)`: `0.366276 -> 0.010880`
+- Runtime at 10 shots vs 5000 shots:
+  - `iqp (8,6)`: `0.255665s -> 0.276210s`
+  - `iqp (12,8)`: `0.264974s -> 0.296403s`
+  - `random (8,6)`: `0.252319s -> 0.269828s`
+  - `random (12,8)`: `0.255957s -> 0.284540s`
+
+Threshold summary (`mean_abs_error < 1e-2`):
+
+| circuit_family | n_qubits | depth | shots to cross | mean_abs_error at crossing | mean_runtime_s at crossing |
+|---|---:|---:|---:|---:|---:|
+| iqp | 8 | 6 | 5000 | 0.007865 | 0.276210 |
+| iqp | 12 | 8 | 5000 | 0.009322 | 0.296403 |
+| random | 8 | 6 | 5000 | 0.007735 | 0.269828 |
+| random | 12 | 8 | not reached | - | - |
+
+Interpretation constrained to this run:
+- Error decreases strongly with more shots across all tested curves.
+- A strict `1e-2` target is near the tested upper bound; one curve remains slightly above it at 5000 shots.
+- Within this implementation, runtime grows with shots but much less sharply than error shrinks over 10 to 5000 shots.
 
 ## 7) Reproducibility
 - Configs:

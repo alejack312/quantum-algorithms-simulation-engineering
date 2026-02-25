@@ -37,3 +37,17 @@ pytest -q
 ## Notes
 - CI is expected to run only the micro config; full run is manual due to runtime.
 - Full run findings should be recorded in `TECHNICAL_MEMO.md` after execution.
+
+## Key Findings (from `results/noise_shot_scaling_full_001/summary.json`)
+- Mean absolute error decreases substantially as shots increase in all tested curves.
+- Runtime increases with shots over the tested range, but in this setup the increase is moderate relative to the error reduction.
+- At threshold `mean_abs_error < 1e-2`, three of four family/regime curves reach target by 5000 shots.
+
+Threshold table (`mean_abs_error < 1e-2`):
+
+| circuit_family | n_qubits | depth | shots to cross threshold | mean_abs_error at crossing | mean_runtime_s at crossing |
+|---|---:|---:|---:|---:|---:|
+| iqp | 8 | 6 | 5000 | 0.007865 | 0.276210 |
+| iqp | 12 | 8 | 5000 | 0.009322 | 0.296403 |
+| random | 8 | 6 | 5000 | 0.007735 | 0.269828 |
+| random | 12 | 8 | not reached | - | - |
