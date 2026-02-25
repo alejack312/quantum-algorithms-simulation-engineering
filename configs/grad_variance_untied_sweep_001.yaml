@@ -1,0 +1,21 @@
+experiment: grad_variance
+output_dir: results/grad_variance_untied_sweep_001
+circuit:
+  family: iqp
+  parameter_tying: none
+  entangler_prob: 0.2
+  n_qubits: [4, 6, 8, 10]
+  depth: [2, 4, 6, 8]
+  n_params: auto
+estimation:
+  observable: Z0
+  grad_method: param_shift
+  shots: null
+repeats:
+  seeds: 20
+  base_seed: 0
+runtime:
+  parallelism: 8
+plot:
+  enabled: true
+  formats: [png]

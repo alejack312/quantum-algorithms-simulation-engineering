@@ -1,0 +1,14 @@
+﻿experiment: transpile_study
+seed: 42
+repetitions: 5
+sweep:
+  qubits: [4, 6]
+  depth: [12, 20]
+  optimization_level: [0, 1, 2, 3]
+backend:
+  type: qiskit_aer
+  shots: 1024
+  optimization_level: 1
+plot:
+  enabled: true
+  formats: [png]

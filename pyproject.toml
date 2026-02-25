@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quantum-swe-artifacts"
+version = "0.1.0"
+description = "Benchmark and experiment harness for quantum SWE artifacts"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+  { name = "Quantum SWE" }
+]
+dependencies = [
+  "qiskit>=1.1",
+  "qiskit-aer>=0.14",
+  "numpy>=1.26",
+  "pandas>=2.1",
+  "matplotlib>=3.8",
+  "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "ruff>=0.5",
+]
+
+[project.scripts]
+quantum-swe-artifacts = "quantum_swe_artifacts.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-p no:tmpdir"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]

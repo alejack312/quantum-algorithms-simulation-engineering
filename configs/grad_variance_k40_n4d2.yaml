@@ -1,0 +1,19 @@
+experiment: grad_variance
+output_dir: results/grad_variance_k40_n4d2
+circuit:
+  family: iqp
+  parameter_tying: global_shared
+  entangler_prob: 0.2
+  n_qubits: [4]
+  depth: [2]
+estimation:
+  observable: Z0
+  grad_method: param_shift
+  shots: null
+repeats:
+  seeds: 40
+  base_seed: 0
+runtime:
+  parallelism: 4
+plot:
+  enabled: false

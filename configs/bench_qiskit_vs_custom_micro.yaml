@@ -1,0 +1,17 @@
+experiment: bench_qiskit_vs_custom
+output_dir: results/bench_qiskit_vs_custom_micro
+seed: 42
+sweep:
+  circuit_families: [iqp]
+  observable: [Z0]
+  n_qubits: [4]
+  depth: [2]
+  K: 1
+modes:
+  - name: statevector_exact
+    shots: null
+  - name: qasm_shots
+    shots: 256
+plot:
+  enabled: true
+  formats: [png]

@@ -1,0 +1,19 @@
+experiment: grad_variance
+output_dir: results/grad_variance_probe_untied_n10d8
+circuit:
+  family: iqp
+  parameter_tying: none
+  entangler_prob: 0.2
+  n_qubits: [10]
+  depth: [8]
+estimation:
+  observable: Z0
+  grad_method: param_shift
+  shots: null
+repeats:
+  seeds: 1
+  base_seed: 0
+runtime:
+  parallelism: 1
+plot:
+  enabled: false
