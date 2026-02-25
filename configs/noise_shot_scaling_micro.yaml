@@ -1,0 +1,16 @@
+experiment: noise_shot_scaling
+output_dir: results/noise_shot_scaling_micro
+seed: 42
+observable: Z0
+sweep:
+  circuit_families: [iqp, random]
+  regimes:
+    - n_qubits: 8
+      depth: 6
+    - n_qubits: 10
+      depth: 6
+  shots: [10, 100, 1000]
+  K: 5
+plot:
+  enabled: true
+  formats: [png]

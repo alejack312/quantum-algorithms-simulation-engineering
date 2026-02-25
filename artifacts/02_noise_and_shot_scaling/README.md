@@ -1,4 +1,8 @@
-﻿# Artifact 02: Noise and Shot Scaling
+# Artifact 02: Noise and Shot Scaling
+
+This legacy path is retained for compatibility.
+Current interview-facing artifact docs and figures are maintained at:
+- `artifacts/02_noise_shot_scaling/README.md`
 
 ## What It Measures
 

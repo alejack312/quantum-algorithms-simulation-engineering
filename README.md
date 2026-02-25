@@ -7,14 +7,17 @@ Latest Result: [Gradient tying vs untied one-pager](artifacts/03_vqa_gradients_i
 ## Highlights (Interview-Ready)
 - [Gradient scaling: tying vs untied](artifacts/03_vqa_gradients_iqp/ONE_PAGER.md)
 - [Backend benchmark: runtime + error tradeoffs](artifacts/01_bench_qiskit_vs_custom/README.md) (figures: `artifacts/01_bench_qiskit_vs_custom/figures/`)
+- [Noise shot scaling: error vs runtime tradeoff](artifacts/02_noise_shot_scaling/README.md) (figures: `artifacts/02_noise_shot_scaling/figures/`)
 
 ## Reproducibility + CI Scope
 - Overlay report (uses existing tied/untied outputs):
   - `python scripts/make_grad_variance_overlay.py`
 - Micro benchmark (quick path):
   - `python -m quantum_swe_artifacts.cli run --config configs/bench_qiskit_vs_custom_micro.yaml`
+- Micro noise-shot scaling (quick path):
+  - `python -m quantum_swe_artifacts.cli run --config configs/noise_shot_scaling_micro.yaml`
 - Outputs land in `results/<run_name>/` and artifact figures land in `artifacts/01_bench_qiskit_vs_custom/figures/` and `artifacts/03_vqa_gradients_iqp/figures/`.
-- CI intentionally does not run `bench_qiskit_vs_custom_full_001.yaml`; only micro/smoke benchmark paths are expected in CI.
+- CI intentionally does not run `bench_qiskit_vs_custom_full_001.yaml` or `noise_shot_scaling_full_001.yaml`; only micro/smoke paths are expected in CI.
 
 ## Methodology
 I structured the architecture in pseudocode first. I explicitly separated 

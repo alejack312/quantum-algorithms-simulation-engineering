@@ -64,3 +64,22 @@ modes:
 Trial-level `results.csv` required columns for this experiment:
 - `n_qubits`, `depth`, `circuit_family`, `observable`, `backend_name`, `mode`, `shots`, `seed`
 - `runtime_s`, `expectation_value`, `abs_error_vs_reference`
+
+### noise_shot_scaling extended fields
+
+```yaml
+observable: Z0
+sweep:
+  circuit_families: [iqp, random]
+  regimes:
+    - n_qubits: 8
+      depth: 6
+    - n_qubits: 12
+      depth: 8
+  shots: [10, 25, 50, 100, 200, 500, 1000, 2000, 5000]
+  K: 30
+```
+
+Trial-level `results.csv` required columns for this experiment:
+- `circuit_family`, `observable`, `n_qubits`, `depth`, `shots`, `seed`, `seed_circuit`, `seed_params`, `seed_shots`
+- `backend_name`, `mode`, `expectation_est`, `expectation_ref`, `abs_error`, `runtime_s`
