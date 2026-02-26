@@ -51,3 +51,8 @@ Threshold table (`mean_abs_error < 1e-2`):
 | iqp | 12 | 8 | 5000 | 0.009322 | 0.296403 |
 | random | 8 | 6 | 5000 | 0.007735 | 0.269828 |
 | random | 12 | 8 | not reached | - | - |
+
+## What To Look At
+- `abs_error_vs_shots_300dpi.png`: verify empirical error decay as shots increase per curve.
+- `stderr_abs_error_vs_shots_300dpi.png`: check estimate stability and uncertainty shrinkage.
+- Threshold table: identify practical shot level for `mean_abs_error < 1e-2` and corresponding runtime.

@@ -34,6 +34,16 @@ python scripts/make_grad_variance_overlay.py
 ls artifacts/03_vqa_gradients_iqp/figures/overlay_log_meanG_vs_n_tied_vs_untied_300dpi.png
 ```
 
+## Where Outputs Go
+- Source runs: `results/grad_variance_full_sweep_001/` and `results/grad_variance_untied_sweep_001/`
+- Generated figure: `artifacts/03_vqa_gradients_iqp/figures/overlay_log_meanG_vs_n_tied_vs_untied_300dpi.png`
+- Summary doc: `artifacts/03_vqa_gradients_iqp/ONE_PAGER.md`
+
+## What To Look At
+- The overlay figure: check slope direction by depth for tied vs untied curves.
+- The fit table: verify sign flip (`slope_tied > 0`, `slope_untied < 0`) across all matched depths.
+- Caveats: confirm interpretation stays finite-regime and parameter-tying aware.
+
 ## Conclusions
 - Across all matched depths, tied slopes are positive while untied slopes are negative for `log(mean_G)` vs `n_qubits`.
 - The direction flip is consistent over the full matched grid, not a single-cell effect.

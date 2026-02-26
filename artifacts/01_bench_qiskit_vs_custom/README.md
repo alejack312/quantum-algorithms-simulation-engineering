@@ -20,6 +20,7 @@ Benchmark runtime and expectation accuracy for two backend paths on the same cir
 ```bash
 python -m quantum_swe_artifacts.cli run --config configs/bench_qiskit_vs_custom_micro.yaml
 python -m quantum_swe_artifacts.cli run --config configs/bench_qiskit_vs_custom_full_001.yaml
+pytest -q
 ```
 
 ## Outputs
@@ -45,6 +46,11 @@ Tiny fastest-backend table (average runtime over each `mode x circuit_family` sl
 | qasm_shots | random | qiskit_backend | 0.3128 |
 | statevector_exact | iqp | qiskit_backend | 0.0112 |
 | statevector_exact | random | qiskit_backend | 0.0091 |
+
+## What To Look At
+- `runtime_vs_n_300dpi.png`: compare backend curves by mode at representative depth.
+- `runtime_vs_depth_300dpi.png`: check whether backend ordering changes with depth.
+- The tiny fastest-backend table above: fastest backend by `mode x circuit_family`.
 
 ## Repro + CI Scope
 - Reproduce full benchmark: `python -m quantum_swe_artifacts.cli run --config configs/bench_qiskit_vs_custom_full_001.yaml`
