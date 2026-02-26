@@ -1,0 +1,17 @@
+experiment: bench_qiskit_vs_custom
+output_dir: results/bench_qiskit_vs_custom_full_001
+seed: 42
+sweep:
+  circuit_families: [iqp, random]
+  observable: [Z0, sumZ]
+  n_qubits: [4, 6, 8, 10, 12]
+  depth: [2, 4, 6, 8]
+  K: 5
+modes:
+  - name: statevector_exact
+    shots: null
+  - name: qasm_shots
+    shots: 1000
+plot:
+  enabled: true
+  formats: [png]

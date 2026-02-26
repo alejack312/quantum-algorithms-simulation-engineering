@@ -1,0 +1,13 @@
+﻿experiment: bench_qiskit_vs_custom
+seed: 42
+repetitions: 5
+sweep:
+  qubits: [2, 4, 6]
+  depth: [5, 10]
+backend:
+  type: qiskit_aer
+  shots: 1024
+  optimization_level: 1
+plot:
+  enabled: true
+  formats: [png]

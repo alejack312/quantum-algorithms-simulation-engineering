@@ -1,0 +1,21 @@
+experiment: grad_variance
+seed: 42
+repetitions: 5
+sweep:
+  qubits: [2, 4, 6, 8]
+  depth: [2, 4]
+circuit:
+  family: iqp
+  parameter_tying: per_qubit
+  entangler_prob: 0.2
+estimation:
+  observable: Z0
+  grad_method: param_shift
+  shots: null
+backend:
+  type: qiskit_aer
+  shots: 1024
+  optimization_level: 1
+plot:
+  enabled: true
+  formats: [png]

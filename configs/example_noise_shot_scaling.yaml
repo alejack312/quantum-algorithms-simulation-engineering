@@ -1,0 +1,16 @@
+experiment: noise_shot_scaling
+seed: 42
+repetitions: 5
+n_qubits: 4
+density: 0.4
+noise_type: depolarizing
+sweep:
+  shots: [128, 256, 512, 1024, 2048]
+  noise_strength: [0.0, 0.01, 0.02]
+backend:
+  type: qiskit_aer
+  shots: 1024
+  optimization_level: 1
+plot:
+  enabled: true
+  formats: [png]

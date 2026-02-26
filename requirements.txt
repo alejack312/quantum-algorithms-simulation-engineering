@@ -1,0 +1,8 @@
+﻿qiskit>=1.1
+qiskit-aer>=0.14
+numpy>=1.26
+pandas>=2.1
+matplotlib>=3.8
+pyyaml>=6.0
+pytest>=8.0
+ruff>=0.5
