@@ -9,6 +9,13 @@ Latest Result: [Gradient tying vs untied one-pager](artifacts/03_vqa_gradients_i
 - [Backend benchmark: runtime + error tradeoffs](artifacts/01_bench_qiskit_vs_custom/README.md) (figures: `artifacts/01_bench_qiskit_vs_custom/figures/`)
 - [Noise shot scaling: error vs runtime tradeoff](artifacts/02_noise_shot_scaling/README.md) (figures: `artifacts/02_noise_shot_scaling/figures/`)
 
+## Quickstart (3 Commands)
+```bash
+make install
+make demo
+make test
+```
+
 ## Reproducibility + CI Scope
 - Overlay report (uses existing tied/untied outputs):
   - `python scripts/make_grad_variance_overlay.py`
@@ -130,6 +137,7 @@ powershell -ExecutionPolicy Bypass -File scripts/smoke_run.ps1
 
 ```bash
 make install
+make demo
 make lint
 make test
 make smoke

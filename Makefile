@@ -1,6 +1,6 @@
 ﻿PYTHON ?= python
 
-.PHONY: install venv test lint smoke report-grad-overlay
+.PHONY: install venv test lint smoke report-grad-overlay demo
 
 venv:
 	$(PYTHON) -m venv .venv
@@ -23,3 +23,10 @@ smoke:
 
 report-grad-overlay:
 	$(PYTHON) scripts/make_grad_variance_overlay.py
+
+demo:
+	$(PYTHON) -m quantum_swe_artifacts.cli run --config configs/grad_variance_micro_sweep.yaml
+	$(PYTHON) scripts/make_grad_variance_report.py
+	$(PYTHON) scripts/make_grad_variance_overlay.py
+	$(PYTHON) -m quantum_swe_artifacts.cli run --config configs/bench_qiskit_vs_custom_micro.yaml
+	$(PYTHON) -m quantum_swe_artifacts.cli run --config configs/noise_shot_scaling_micro.yaml
